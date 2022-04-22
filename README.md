@@ -10,7 +10,7 @@
 ## Deploying and testing changes to AWS:
 <br>
 
-*This is the manual build/deployment process for  Docker Selenium Lambda (python 3.8) . You can view [umicho's project](https://github.com/umihico/docker-selenium-lambda) to deploy the project using serverless*
+*This is the manual build/deployment process for  Docker Selenium Lambda (python 3.8) . You can view [umicho's project](https://github.com/umihico/docker-selenium-lambda) to deploy the project in a more automated fashion using the serverless framework*
 
 <br>
 Upload Image to AWS ECR
