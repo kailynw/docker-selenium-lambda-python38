@@ -12,5 +12,4 @@ RUN yum install -y unzip && \
 COPY ./requirements.txt /pip-requirements/
 RUN pip install -r /pip-requirements/requirements.txt
 COPY ./src ${LAMBDA_TASK_ROOT}/src
-RUN cd ${LAMBDA_TASK_ROOT}/src && ls -a
 CMD [ "src.main.runner.handler" ]
