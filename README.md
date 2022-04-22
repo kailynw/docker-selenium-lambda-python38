@@ -47,3 +47,17 @@ Use image in AWS Lambda and test
     ```bash 
     curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"payload":"hello world!"}' 
     ```
+
+<hr>
+
+## Additional Resources that helped me build the project
+
+- Creating custom lambda docker images from ECR gallery:
+https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-create-1
+
+- Docker ECR lambda python3.8 base image for umhico's project (public.ecr.aws/lambda/python:3.8):
+https://gallery.ecr.aws/lambda/python
+
+
+- How to create an AWS Lambda using AWS ECR Docker container image in Python
+ https://medium.com/mlearning-ai/how-to-create-an-aws-lambda-using-aws-ecr-docker-container-image-in-python-76203a2c11e2
