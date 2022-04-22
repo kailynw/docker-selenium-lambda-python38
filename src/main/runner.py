@@ -11,11 +11,11 @@ logger = logging.getLogger()
 def handler(event=None, context=None):
     logger.info(f"Python Version info: {sys.version}")
     logger.info(f"Event: {event}")
-    
+
     #Initiate Driver
     driver = WebDriverConfig().get_driver()
 
-    #Go to example.com and show test output
+    #Go to example.com and show text output
     driver.get("https://example.com/")
     logger.info(driver.find_element(By.TAG_NAME, "h1").text)
     time.sleep(5)
