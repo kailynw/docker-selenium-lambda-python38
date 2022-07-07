@@ -31,22 +31,48 @@ Use image in AWS Lambda and test
 	
 <hr>
 
-## Local Testing 
+## Local Testing
+This is using the local selenium driver to test your code
+
+1. Install and activate virtual env
+    ```bash
+    $ python -m venv my_virtual_env
+    $ source my_virtual_env/bin/activate #For Linux/MacOS
+    $ source my_virtual_env/Scritps/activate #For Windows
+    ```
+2. Run project
+    ```bash
+    $ python -m src.main.runner
+    ```
+3. (Optional) Uncomment out the event that you want to run in the runner.py
+
+<hr>
+
+## Local Docker-Selenium Image Testing 
+Instead of deploying to AWS Lambda to test everytime, you can test the image locally if you have Docker on your PC
 
 1. In same directory as Dockerfile run
     ```bash
-    docker build -t docker-selenium-lambda-python38 --progress=plain .
+    $ docker build -t docker-selenium-lambda-python38 --progress=plain .
     ```
 
 2. Run image in container
     ```bash
-    docker run -p 9090:8080 docker-selenium-lambda-python38
+    $ docker run -p 9090:8080 docker-selenium-lambda-python38
     ```
 
-1. To execute lambda script, Run command in separate terminal 
+3. To execute lambda script, Run command in separate terminal 
     ```bash 
-    curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"payload":"hello world!"}' 
+    $ curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"process":"screenshot-run"}' 
     ```
+    <u>or</u>
+
+    Open Postman and hit the endpoint:
+
+    Example:
+
+    ![Postman Example Endpoint](/README_images/postman_example.png "Optional Title")
+
 
 <hr>
 
@@ -59,5 +85,16 @@ https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-create-1
 https://gallery.ecr.aws/lambda/python
 
 
-- How to create an AWS Lambda using AWS ECR Docker container image in Python
+- How to create an AWS Lambda using AWS ECR Docker container image in Python:
  https://medium.com/mlearning-ai/how-to-create-an-aws-lambda-using-aws-ecr-docker-container-image-in-python-76203a2c11e2
+
+
+- Run Selenium in AWS Lambda UI testing: https://cloudbytes.dev/snippets/run-selenium-in-aws-lambda-for-ui-testing
+
+- Guide to downloading certain chromium versions: https://www.chromium.org/getting-involved/download-chromium/
+
+- Script to download lastest chromium browser: https://github.com/scheib/chromium-latest-linux
+
+- Chromium verion lookup tool: https://omahaproxy.appspot.com/
+
+

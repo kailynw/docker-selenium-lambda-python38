@@ -1,2 +1,2 @@
-selenium==3.141.0
+selenium==4.3.0
 chromedriver-autoinstaller #Only used locally

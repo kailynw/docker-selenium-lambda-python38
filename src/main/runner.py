@@ -1,8 +1,6 @@
 import sys
-import time
 import logging
-from selenium.webdriver.common.by import By
-from src.main.config.WebDriverConfig import WebDriverConfig
+from src.main.examples.ExampleRuns import ExampleRuns
 
 logging.basicConfig()
 logging.getLogger().setLevel(logging.INFO)
@@ -12,17 +10,22 @@ def handler(event=None, context=None):
     logger.info(f"Python Version info: {sys.version}")
     logger.info(f"Event: {event}")
 
-    #Initiate Driver
-    driver = WebDriverConfig().get_driver()
+    if(event["process"] == "download-file-run"):
+        logger.info('Running Download file from website process...')
+        ExampleRuns.download_file_from_website()
+    elif(event["process"] == "screenshot-run"):
+        logger.info('Running take screenshot website process...')
+        ExampleRuns.take_screenshot_from_website()
+    else:
+        logger.info('Running go to website process...')
+        ExampleRuns.go_to_website()
 
-    #Go to example.com and show text output
-    driver.get("https://example.com/")
-    logger.info(driver.find_element(By.TAG_NAME, "h1").text)
-    time.sleep(5)
-    driver.quit()
+    return "Process completed successfully!"
 
-    return "This actually works lol"
-
+#Local Testing
 if __name__ == '__main__':
-    handler(None, None)
+    # event = {"process": "download-file-run"} 
+    # event = {"process": "screenshot-run"}
+    event = {"process": ""}
+    handler(event, None)
 
